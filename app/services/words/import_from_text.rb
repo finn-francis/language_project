@@ -4,15 +4,20 @@ module Words
   class ImportFromText
     class << self
       def call(text, language)
-        all_words = text.split(Word::FORBIDDEN_CHARACTERS)
-        all_words = all_words.reject(&:empty?)
-        all_words = all_words.map(&:downcase)
+        # Ideally we'd add this to the create loop, however as the word count for a language
+        # goes up we'll end up loading hundreds of thousands of words into memory
+        all_words = text.split(Word::FORBIDDEN_CHARACTERS).filter_map do |word|
+          word.empty? ? nil : word.downcase
+        end
 
-        all_words.each do |word|
-          db_record = language.words.find_by(name: word)
-          next if db_record
+        db_words = language.words.where(name: all_words).index_by(&:name)
 
-          language.words.create(name: word)
+        ActiveRecord::Base.transaction do
+          all_words.each do |word|
+            next if db_words[word]
+
+            db_words[word] = Word.create(name: word, language: language)
+          end
         end
       end
     end
