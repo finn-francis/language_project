@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 ruby '3.0.0'
 
 gem 'devise', '~> 4.9'
+gem 'factory_bot_rails', '~> 6.4'
+gem 'faker', '~> 3.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'

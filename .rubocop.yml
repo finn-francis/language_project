@@ -29,6 +29,9 @@ Metrics/PerceivedComplexity:
 Layout/LineLength:
   Max: 120
 
+RSpec/ExampleLength:
+  Enabled: false
+
 Naming/MethodName:
   EnforcedStyle: snake_case
 
