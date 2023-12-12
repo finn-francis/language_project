@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.0'
 
+gem 'devise', '~> 4.9'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
