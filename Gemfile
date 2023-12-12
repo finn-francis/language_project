@@ -13,6 +13,7 @@ gem 'rails', '~> 7.1.2'
 gem 'redis', '>= 4.0.1'
 gem 'rubocop'
 gem 'rubocop-rails'
+gem 'rubocop-rspec', require: false
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
