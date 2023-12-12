@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.0'
 
+gem 'devise', '~> 4.9'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
@@ -12,6 +13,7 @@ gem 'rails', '~> 7.1.2'
 gem 'redis', '>= 4.0.1'
 gem 'rubocop'
 gem 'rubocop-rails'
+gem 'rubocop-rspec', require: false
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
