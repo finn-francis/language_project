@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 ruby '3.0.0'
 
 gem 'devise', '~> 4.9'
+gem 'factory_bot_rails', '~> 6.4'
+gem 'faker', '~> 3.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
@@ -35,6 +37,11 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do

@@ -1,0 +1,6 @@
+<%= turbo_frame_tag 'new_user_language_form' do %>
+  <%= form_for UserLanguage.new(user_id: view_object.dig(current_user.id)) do |form| %>
+    <%= form.select :language, @unlearned_languages %>
+    <%= form.submit 'Start Learning' %>
+  <% end %>
+<% end %>

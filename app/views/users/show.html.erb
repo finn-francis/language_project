@@ -1,1 +1,12 @@
+<% current_language = view_object[:current_language] %>
+
 <h2>Welcome <%= view_object.dig(:current_user, :email) %></h2>
+<% if current_language %>
+  <h3>You are currently studying <%= view_object.dig(:current_language, :name) %> </h3>
+<% else %>
+  <%= turbo_frame_tag "new_user_language_form" do %>
+    <div>
+      <%= link_to "New Language", new_user_language_path %>
+    </div>
+  <% end %>
+<% end %>
