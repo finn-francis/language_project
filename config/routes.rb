@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   root 'users#show'
+  resources :user_languages, only: %i[new create]
 end

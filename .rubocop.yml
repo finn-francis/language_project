@@ -32,6 +32,9 @@ Layout/LineLength:
 RSpec/ExampleLength:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Naming/MethodName:
   EnforcedStyle: snake_case
 
