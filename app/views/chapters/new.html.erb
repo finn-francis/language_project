@@ -1,0 +1,14 @@
+<%= form_for(@chapter, url: course_chapters_path(@course)) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field standard-padding">
+    <textarea name="raw_text" id="raw-text" class='text-area-75-percent'></textarea>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

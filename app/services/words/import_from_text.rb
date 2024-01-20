@@ -6,7 +6,7 @@ module Words
       def call(text, language)
         # Ideally we'd add this to the create loop, however as the word count for a language
         # goes up we'll end up loading hundreds of thousands of words into memory
-        all_words = text.split(Word::FORBIDDEN_CHARACTERS).filter_map do |word|
+        all_words = text.scan(Word::REGEX).filter_map do |word|
           word.empty? ? nil : word.downcase
         end
 
@@ -19,6 +19,7 @@ module Words
             db_words[word] = Word.create(name: word, language: language)
           end
         end
+        db_words
       end
     end
   end

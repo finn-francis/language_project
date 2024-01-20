@@ -1,0 +1,9 @@
+.standard-padding {
+  padding: 1em;
+}
+
+.text-area-75-percent {
+  width: 100%;
+  height: 75vh;
+  box-sizing: border-box;
+}
