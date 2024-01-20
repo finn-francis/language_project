@@ -27,7 +27,7 @@ class ChaptersController < ApplicationController
   end
 
   def find_course
-    @course = Course.includes(:chapters).find(params[:course_id])
+    @course = Course.includes(chapters: { paragraphs: :sentences }).find(params[:course_id])
   end
 
   def find_chapter

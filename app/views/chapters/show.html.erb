@@ -1,0 +1,5 @@
+<h2><%=@chapter.name %></h2>
+
+<% @chapter.paragraphs.each do |paragraph| %>
+  <p><%= paragraph.raw_text %></p>
+<% end %>
