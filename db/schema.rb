@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_19_212519) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_20_102407) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_212519) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
     t.index ["parent_id"], name: "index_courses_on_parent_id"
   end
 
@@ -40,6 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_212519) do
     t.text "raw_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
   end
 
   create_table "user_languages", force: :cascade do |t|

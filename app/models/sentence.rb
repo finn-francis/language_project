@@ -5,4 +5,6 @@ class Sentence < ApplicationRecord
   belongs_to :paragraph, inverse_of: :sentences
   has_many :sentence_words, dependent: :destroy, inverse_of: :sentence
   has_many :words, through: :sentence_words, inverse_of: :sentences
+
+  acts_as_list scope: :paragraph
 end
