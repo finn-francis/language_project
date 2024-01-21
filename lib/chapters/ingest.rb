@@ -28,7 +28,7 @@ module Chapters
 
         paragraph = @chapter.paragraphs.build
 
-        paragraph_text.scan(Sentence::REGEX).each do |sentence_text|
+        paragraph_text.split(Sentence::SPLIT_REGEX).each do |sentence_text|
           sentence = paragraph.sentences.build(raw_text: sentence_text)
 
           sentence_text.scan(Word::REGEX).each do |word_text|

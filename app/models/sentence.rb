@@ -2,7 +2,7 @@
 
 # Contains the raw text and word associations for the paragraph, chapter and course
 class Sentence < ApplicationRecord
-  REGEX = /[A-Z][^\.!?]*[\.!?]/
+  REGEX = /[—A-Z][^\.!?]*(?:\.{3}|[\.!?])/
 
   belongs_to :paragraph, inverse_of: :sentences
   has_many :sentence_words, dependent: :destroy, inverse_of: :sentence
