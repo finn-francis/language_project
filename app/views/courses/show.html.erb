@@ -2,6 +2,7 @@
 
 <%= link_to 'New Chapter', new_course_chapter_path(@course) %>
 
+<h2>Chapters</h2>
 <% @course.chapters.each do |chapter| %>
   <%= link_to chapter.name, course_chapter_path(@course, chapter) %>
 <% end %>

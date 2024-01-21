@@ -1,5 +1,14 @@
 <h2><%=@chapter.name %></h2>
 
-<% @chapter.paragraphs.each do |paragraph| %>
-  <p><%= paragraph.raw_text %></p>
+<% @chapter.paragraphs.each_with_index do |paragraph, index| %>
+  <div>
+    <% paragraph.sentences.each do |sentence| %>
+      <% if sentence.raw_text.start_with?('-') %>
+        <p><%= sentence.raw_text %></p>
+      <% else %>
+        <span><%= sentence.raw_text %></span>
+      <% end %>
+    <% end %>
+  </div>
+  <br/>
 <% end %>
