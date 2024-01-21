@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-fdescribe Chapters::Ingest do
+describe Chapters::Ingest do
   before do
     Language.find_or_create_by(name: 'Polish')
   end

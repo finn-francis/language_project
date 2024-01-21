@@ -3,7 +3,7 @@
 # TODO(Finn): Before this ever goes to production this should all be scoped to the current user.
 class CoursesController < ApplicationController
   def index
-    @courses = Course.all
+    @courses = Course.where(type: nil).all
   end
 
   def show
