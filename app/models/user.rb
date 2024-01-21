@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages
+  has_many :user_words, dependent: :destroy
+  has_many :words, through: :user_words
 end
