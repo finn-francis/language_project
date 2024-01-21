@@ -53,3 +53,6 @@ Style/DoubleNegation:
 Style/FrozenStringLiteralComment:
   Exclude:
    - db/migrate/**/*
+
+RSpec/Focus:
+  Enabled: false

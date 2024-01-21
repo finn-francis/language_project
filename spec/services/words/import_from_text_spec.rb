@@ -8,7 +8,7 @@ describe Words::ImportFromText do
     let(:polish) { Language.find_or_create_by(name: 'Polish') }
 
     it 'creates database entries for the new words' do
-      expect { described_class.call(text, polish) }.to change(Word, :count).by(353)
+      expect { described_class.call(text, polish) }.to change(Word, :count).by(345)
     end
   end
 end

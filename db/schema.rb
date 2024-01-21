@@ -10,14 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_12_164922) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_20_104713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.integer "parent_id"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
+    t.string "name"
+    t.index ["parent_id"], name: "index_courses_on_parent_id"
+  end
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sentence_words", force: :cascade do |t|
+    t.integer "sentence_id"
+    t.integer "word_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sentences", force: :cascade do |t|
+    t.integer "paragraph_id"
+    t.text "raw_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
   end
 
   create_table "user_languages", force: :cascade do |t|

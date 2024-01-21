@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 
   root 'users#show'
   resources :user_languages, only: %i[new create]
+
+  resources :courses, only: %i[index new create show] do
+    resources :chapters, only: %i[new create show]
+  end
 end
