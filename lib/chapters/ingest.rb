@@ -2,6 +2,7 @@
 
 module Chapters
   # Ingest the raw text for a chapter and turn it into paragraphs and sentences
+  # TODO: we should attach all of the words to the current user with user words
   class Ingest
     class << self
       def call(chapter, raw_text)
@@ -28,7 +29,7 @@ module Chapters
 
         paragraph = @chapter.paragraphs.build
 
-        paragraph_text.split(Sentence::SPLIT_REGEX).each do |sentence_text|
+        paragraph_text.scan(Sentence::REGEX).each do |sentence_text|
           sentence = paragraph.sentences.build(raw_text: sentence_text)
 
           sentence_text.scan(Word::REGEX).each do |word_text|

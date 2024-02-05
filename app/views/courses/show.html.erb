@@ -3,6 +3,40 @@
 <%= link_to 'New Chapter', new_course_chapter_path(@course) %>
 
 <h2>Chapters</h2>
-<% @course.chapters.each do |chapter| %>
-  <%= link_to chapter.name, course_chapter_path(@course, chapter) %>
-<% end %>
+<ol>
+  <% @course.chapters.each do |chapter| %>
+    <li>
+      <%= link_to chapter.name, course_chapter_path(@course, chapter) %>
+    </li>
+  <% end %>
+</ol>
+
+<h2>Most common words in the book</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Frequency</th>
+      <th>Known</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @most_common_words.each do |user_word| %>
+      <% word = user_word.word %>
+      <tr>
+        <td>
+          <%= link_to(word.name, word_path(word)) %>
+        </td>
+        <td><%= word.frequency %></td>
+        <td>
+          <%= form_for(user_word) do |f| %>
+            <%= f.collection_radio_buttons :status, UserWord::STATUS_VALUES.to_a, :first, :first %>
+
+            <%= f.submit "save" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

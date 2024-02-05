@@ -1,0 +1,6 @@
+<p><%= link_to "return", :back %></p>
+<h1><%= @word.name %></h1>
+
+<% @word.sentences.each do |sentence| %>
+  <p><%= sentence.raw_text %></p>
+<% end %>

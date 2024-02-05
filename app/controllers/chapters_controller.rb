@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChaptersController < ApplicationController
+class ChaptersController < CoursesController
   before_action :find_course
 
   def show
@@ -24,10 +24,6 @@ class ChaptersController < ApplicationController
 
   def chapter_params
     params.require(:chapter).permit(:name)
-  end
-
-  def find_course
-    @course = Course.includes(chapters: { paragraphs: :sentences }).find(params[:course_id])
   end
 
   def find_chapter
