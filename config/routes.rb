@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     resources :chapters, only: %i[new create show]
   end
 
-  resources :words, only: %i[show]
+  resources :words, param: :slug, only: %i[show]
 end

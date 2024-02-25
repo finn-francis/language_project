@@ -1,24 +1,30 @@
-<h1><%= @course.name %></h1>
+<h1 class='mb-3'>
+  <%= @course.name %>
+</h1>
 
-<%= link_to 'New Chapter', new_course_chapter_path(@course) %>
-
-<h2>Chapters</h2>
-<ol>
+<h2 class='mb-3'>
+  Chapters
+  <%= link_to 'New Chapter', new_course_chapter_path(@course), class: 'btn btn-primary' %>
+</h2>
+<ol class='list-group list-group-numbered'>
   <% @course.chapters.each do |chapter| %>
-    <li>
+    <li class='list-group-item'>
       <%= link_to chapter.name, course_chapter_path(@course, chapter) %>
     </li>
   <% end %>
 </ol>
 
+<br>
+<br>
+
 <h2>Most common words in the book</h2>
 
-<table>
+<table class='table table-striped table-hover'>
   <thead>
     <tr>
-      <th>Word</th>
-      <th>Frequency</th>
-      <th>Known</th>
+      <th scope='col'>Word</th>
+      <th scope='col'>Frequency</th>
+      <th scope='col'>Known</th>
     </tr>
   </thead>
   <tbody>
@@ -26,7 +32,7 @@
       <% word = user_word.word %>
       <tr>
         <td>
-          <%= link_to(word.name, word_path(word)) %>
+          <%= link_to(word.name, word_path(word.name)) %>
         </td>
         <td><%= word.frequency %></td>
         <td>
